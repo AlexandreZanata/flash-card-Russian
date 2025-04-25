@@ -65,12 +65,11 @@
   animation: bounce 1s;
 }
 
-/* CORREÇÃO COMPLETA PARA FLASHCARDS */
+/* Animações para os flashcards - VERSÃO CORRIGIDA */
 .flashcard-flip {
   perspective: 1000px;
   width: 100%;
   height: 100%;
-  margin-bottom: 20px;
 }
 
 .flashcard-inner {
@@ -78,11 +77,9 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.6s;
+  transition: transform 0.8s;
   transform-style: preserve-3d;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border-radius: 10px;
 }
 
 .flashcard-front, .flashcard-back {
@@ -91,20 +88,24 @@
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border-radius: 10px;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background-color: white;
+  padding: 1.5rem;
 }
 
 .flashcard-front {
+  background-color: white;
+  color: black;
   z-index: 2;
 }
 
 .flashcard-back {
+  background-color: white;
+  color: black;
   transform: rotateY(180deg);
   z-index: 1;
 }
@@ -113,22 +114,25 @@
   transform: rotateY(180deg);
 }
 
-/* Destaque visual para indicar que o cartão é clicável */
+/* Adiciona efeito de hover para indicar que o cartão é clicável */
 .flashcard-inner:hover {
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  transform: translateY(-5px) scale(1.02);
-  transition: all 0.3s ease;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-.flashcard-flipped .flashcard-inner:hover {
-  transform: rotateY(180deg) translateY(-5px) scale(1.02);
+/* Adiciona um indicador visual de que o cartão pode ser virado */
+.flashcard-flip::after {
+  content: "Clique para virar";
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  pointer-events: none;
 }
 
 /* Animação para o botão de som */
 .sound-button {
   transition: all 0.2s ease;
-  margin-top: 15px;
-  z-index: 10;
 }
 
 .sound-button:hover {
@@ -188,17 +192,4 @@
 
 .progress-bar-fill {
   animation: progressFill 1s ease-out;
-}
-
-/* Indicador de clique */
-.click-indicator {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  font-size: 12px;
-  color: #6b7280;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 4px 8px;
-  border-radius: 4px;
-  pointer-events: none;
 }

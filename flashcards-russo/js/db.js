@@ -85,6 +85,7 @@ const getCategories = () => {
 // Função para gerar dados iniciais de flashcards
 const generateInitialFlashcards = () => {
   // Em produção, aqui seriam carregadas as 10.000 palavras mais frequentes
+  // Para este exemplo, usamos um conjunto reduzido
   return [
     // Categoria: Saudações
     {

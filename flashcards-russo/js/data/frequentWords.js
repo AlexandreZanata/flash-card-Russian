@@ -1,7 +1,5 @@
-// frequentWords.js - Arquivo com as 1000 palavras mais frequentes em russo
-
 const frequentWords = [
-  // Palavras 1-50
+
   {
     id: 'freq-001',
     russian: 'и',
@@ -1005,10 +1003,5 @@ const frequentWords = [
     context: 'Adjetivo. Ex: Новый дом (Casa nova)'
   },
   
-  // Continuar com as palavras 101-1000...
-  // Devido ao limite de espaço, este arquivo contém apenas as primeiras 100 palavras.
-  // O restante das palavras deve ser adicionado seguindo o mesmo formato.
 ];
 
-// Exportar o array de palavras frequentes
-export default frequentWords;

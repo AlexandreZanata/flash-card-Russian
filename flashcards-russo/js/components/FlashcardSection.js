@@ -230,13 +230,13 @@ const FlashcardSection = ({ category }) => {
           </div>
         </div>
         
-        <div className="flashcard-flip w-full max-w-md mx-auto mb-6" style={{height: "300px"}}>
+        <div className="flashcard-flip w-full max-w-md mx-auto mb-6">
           <div 
-            className={`flashcard-inner relative w-full h-full ${flipped ? 'flashcard-flipped' : ''}`}
+            className={`flashcard-inner relative w-full h-64 ${flipped ? 'flashcard-flipped' : ''}`}
             onClick={flipCard}
           >
             {/* Frente do cartão (palavra em russo) */}
-            <div className="flashcard-front">
+            <div className="flashcard-front absolute w-full h-full bg-white rounded-xl shadow-card p-6 flex flex-col items-center justify-center">
               <span className="text-4xl font-bold text-primary mb-4">{currentCard.russian}</span>
               <span className="text-lg text-neutral-600">[{currentCard.transcription}]</span>
               <button 
@@ -248,13 +248,13 @@ const FlashcardSection = ({ category }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                 </svg>
               </button>
-              <div className="click-indicator">
+              <div className="absolute bottom-2 right-2 text-xs text-neutral-400">
                 Clique para virar
               </div>
             </div>
             
             {/* Verso do cartão (tradução e contexto) */}
-            <div className="flashcard-back">
+            <div className="flashcard-back absolute w-full h-full bg-white rounded-xl shadow-card p-6 flex flex-col items-center justify-center">
               <span className="text-2xl font-bold text-secondary mb-2">{currentCard.portuguese}</span>
               {currentCard.english && (
                 <span className="text-lg text-neutral-600 mb-2">{currentCard.english}</span>
@@ -276,14 +276,14 @@ const FlashcardSection = ({ category }) => {
                 </div>
               )}
               
-              <div className="click-indicator">
+              <div className="absolute bottom-2 right-2 text-xs text-neutral-400">
                 Clique para virar
               </div>
             </div>
           </div>
         </div>
         
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex justify-between items-center">
           <button
             onClick={prevCard}
             disabled={currentIndex === 0}
@@ -330,6 +330,22 @@ const FlashcardSection = ({ category }) => {
   return (
     <div className="max-w-4xl mx-auto">
       {renderFlashcardContent()}
+      
+      <div className="bg-white rounded-xl shadow-card p-6">
+        <h3 className="text-xl font-bold text-neutral mb-4">Como Usar Esta Palavra</h3>
+        <p className="text-neutral-600 mb-2">
+          {flashcards.length > 0 && !loading && !error ? (
+            flashcards[currentIndex].context || 
+            `Esta palavra é comumente usada em contextos ${flashcards[currentIndex].category}. 
+             Tente criar frases simples usando-a para praticar.`
+          ) : (
+            'Selecione um flashcard para ver informações sobre como usar a palavra em contexto.'
+          )}
+        </p>
+        <p className="text-neutral-600 mt-4">
+          <strong>Dica:</strong> Clique nos botões de som para ouvir a pronúncia correta e tente repetir em voz alta.
+        </p>
+      </div>
     </div>
   );
 };
