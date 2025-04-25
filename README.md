@@ -22,7 +22,7 @@ Flashcards Russo é uma aplicação web interativa projetada para ajudar estudan
 
 ### Uso Online
 
-Acesse a versão online do projeto em: [https://ubjlkxrg.manus.space](https://ubjlkxrg.manus.space)
+Acesse a versão online do projeto em: https://flashcard-red-one.vercel.app/
 
 ### Uso Local
 
@@ -238,7 +238,7 @@ Russian Flashcards is an interactive web application designed to help students l
 
 ### Online Usage
 
-Access the online version of the project at: [https://ubjlkxrg.manus.space](https://ubjlkxrg.manus.space)
+Access the online version of the project at: https://flashcard-red-one.vercel.app/
 
 ### Local Usage
 
