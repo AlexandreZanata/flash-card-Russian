@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RussoCards - Aprenda Russo com Flashcards</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração do Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#7C3AED',
+                        accent: '#EC4899',
+                        neutral: '#1F2937',
+                        'neutral-light': '#F3F4F6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                        'card': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- React e Babel via CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <style>
+        /* Estilos adicionais que não são facilmente alcançáveis com Tailwind */
+        .flashcard-flip {
+            perspective: 1000px;
+        }
+        .flashcard-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .flashcard-front, .flashcard-back {
+            backface-visibility: hidden;
+        }
+        .flashcard-back {
+            transform: rotateY(180deg);
+        }
+        .flashcard-flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+        
+        /* Botão de som */
+        .sound-button {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .sound-button:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+        .sound-button:active {
+            transform: scale(0.95);
+        }
+        
+        /* Ícone de som */
+        .sound-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: rgba(79, 70, 229, 0.1);
+            color: #4F46E5;
+        }
+    </style>
+</head>
+<body class="bg-neutral-light min-h-screen">
+    <div id="root"></div>
+    
+    <!-- Utilitários -->
+    <script type="text/babel" src="js/utils.js"></script>
+    <script type="text/babel" src="js/soundManager.js"></script>
+    <script type="text/babel" src="js/db.js"></script>
+    
+    <!-- Dados da aplicação -->
+    <script type="text/babel" src="js/data/alphabet.js"></script>
+    <script type="text/babel" src="js/data/categories.js"></script>
+    <script type="text/babel" src="js/data/frequentWords.js"></script>
+    <script type="text/babel" src="js/data/categories/saudacoes.js"></script>
+    <script type="text/babel" src="js/data/categories/comida.js"></script>
+    <script type="text/babel" src="js/data/categories/transporte.js"></script>
+    <script type="text/babel" src="js/data/categories/emocoes.js"></script>
+    <script type="text/babel" src="js/data/categories/familia.js"></script>
+    <script type="text/babel" src="js/data/categories/numeros.js"></script>
+    <script type="text/babel" src="js/data/categories/cores.js"></script>
+    <script type="text/babel" src="js/data/categories/tempo.js"></script>
+    <script type="text/babel" src="js/data/categories/casa.js"></script>
+    <script type="text/babel" src="js/data/categories/trabalho.js"></script>
+    <script type="text/babel" src="js/data/categories/lazer.js"></script>
+    <script type="text/babel" src="js/data/categories/viagem.js"></script>
+    <script type="text/babel" src="js/data/flashcardsData.js"></script>
+    
+    <!-- Componentes de jogos -->
+    <script type="text/babel" src="js/components/games/MatchGame.js"></script>
+    <script type="text/babel" src="js/components/games/HangmanGame.js"></script>
+    <script type="text/babel" src="js/components/games/QuizGame.js"></script>
+    
+    <!-- Componentes da aplicação -->
+    <script type="text/babel" src="js/components/SearchBar.js"></script>
+    <script type="text/babel" src="js/components/Header.js"></script>
+    <script type="text/babel" src="js/components/Sidebar.js"></script>
+    <script type="text/babel" src="js/components/AlphabetSection.js"></script>
+    <script type="text/babel" src="js/components/FlashcardSection.js"></script>
+    <script type="text/babel" src="js/components/CustomFlashcards.js"></script>
+    <script type="text/babel" src="js/components/Games.js"></script>
+    <script type="text/babel" src="js/components/ProgressStats.js"></script>
+    <script type="text/babel" src="js/components/App.js"></script>
+    
+    <!-- Script principal -->
+    <script type="text/babel" src="js/main.js"></script>
+</body>
+</html>
